@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SettingsPopup from "../../components/SettingsPopup";
 import { Note } from "../../interface/data";
@@ -53,9 +52,14 @@ export default function NotePage({ params }: any) {
       <div className="mx-[0.7rem] md:mx-[1rem] lg:mx-[10rem] text-secondary font-mono">
         <SettingsPopup setPopUp={setPopUp} display={popUp ? "block" : "none"} text={text} clearHandl={clear} />
         <div className="flex justify-between items-center px-10 lg:px-40 font-semibold text-center my-5">
-          <Link href="/">
-            <div className="text-4xl hover:cursor-pointer hover:text-secondary-hover">TypNote</div>
-          </Link>
+          <div
+            onClick={() => {
+              window.location.href = "/";
+            }}
+            className="text-4xl hover:cursor-pointer hover:text-secondary-hover"
+          >
+            TypNote
+          </div>
           <div className="text-2xl hover:cursor-pointer hover:text-secondary-hover" onClick={() => setPopUp(true)}>
             T
           </div>
