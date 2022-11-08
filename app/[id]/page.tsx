@@ -79,6 +79,7 @@ export default function NotePage({ params }: any) {
             setText(e.target.value);
             let note: Note[] = JSON.parse(localStorage.getItem("_K")!);
             note[id].text = e.target.value;
+            note[id].last_update = new Date().getTime();
             localStorage.setItem("_K", JSON.stringify(note!));
           }}
           autoFocus
