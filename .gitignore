@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+deployGIthub.sh
 # next.js
 /.next/
 /out/
