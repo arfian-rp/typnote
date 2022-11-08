@@ -31,14 +31,20 @@ export default function Page() {
       </div>
       <hr />
       <div>
-        <div className="border-2 border-secondary hover:border-secondary-hover w-[20rem] mx-auto p-2 my-3 rounded-lg flex flex-col items-center gap-5">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            Create();
+          }}
+          className="border-2 border-secondary hover:border-secondary-hover w-[20rem] mx-auto p-2 my-3 rounded-lg flex flex-col items-center gap-5"
+        >
           <label htmlFor="">
             title: <input type="text" value={nt} onChange={(e) => setNt(e.target.value)} className="border-2 border-secondary bg-primary rounded-lg" />
           </label>
-          <button className="p-2 px-5 rounded-md border-2 transition duration-300 ease-in-out bg-primary hover:text-secondary-hover hover:border-secondary-hover" onClick={Create}>
+          <button className="p-2 px-5 rounded-md border-2 transition duration-300 ease-in-out bg-primary hover:text-secondary-hover hover:border-secondary-hover" type="submit">
             Create New
           </button>
-        </div>
+        </form>
       </div>
       <div className="flex flex-col items-center">
         {notes?.map((n, i) => (
