@@ -25,6 +25,7 @@ export default function Card({ id, title, last_update }: P) {
       </div>
       <Link href={`/${id}`}>
         <div className="text-center group-hover:text-secondary-hover">{title}</div>
+        <hr />
         <div className="text-center group-hover:text-secondary-hover">last update: {new Date(last_update).toLocaleString()}</div>
       </Link>
     </div>
