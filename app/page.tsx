@@ -16,8 +16,10 @@ export default function Page() {
   }, []);
 
   function Create() {
-    localStorage.setItem("_K", JSON.stringify([{ id: `@${new Date().getTime()}`, title: nt, last_update: new Date().getTime(), text: "" }, ...notes!]));
-    window.location.reload();
+    if (nt.trim()) {
+      localStorage.setItem("_K", JSON.stringify([{ id: `@${new Date().getTime()}`, title: nt, last_update: new Date().getTime(), text: "" }, ...notes!]));
+      window.location.reload();
+    }
   }
 
   return (
