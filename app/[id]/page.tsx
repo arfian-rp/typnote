@@ -41,7 +41,6 @@ export default function NotePage({ params }: any) {
     if (confirm("clear ?")) {
       if (confirm("sure ??")) {
         setText("");
-        localStorage.removeItem("nB");
         window.location.reload();
       }
     }
