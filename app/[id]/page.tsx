@@ -40,10 +40,18 @@ export default function NotePage({ params }: any) {
   function clear() {
     if (confirm("clear ?")) {
       if (confirm("sure ??")) {
-        setText("");
+        updateText("");
         window.location.reload();
       }
     }
+  }
+
+  function updateText(t: string) {
+    setText(t);
+    let note: Note[] = JSON.parse(localStorage.getItem("_K")!);
+    note[id].text = t;
+    note[id].last_update = new Date().getTime();
+    localStorage.setItem("_K", JSON.stringify(note!));
   }
 
   return (
@@ -74,13 +82,7 @@ export default function NotePage({ params }: any) {
             }
           }}
           value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-            let note: Note[] = JSON.parse(localStorage.getItem("_K")!);
-            note[id].text = e.target.value;
-            note[id].last_update = new Date().getTime();
-            localStorage.setItem("_K", JSON.stringify(note!));
-          }}
+          onChange={(e) => updateText(e.target.value)}
           autoFocus
         ></textarea>
         <hr />
